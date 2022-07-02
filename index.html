@@ -15,27 +15,176 @@
     <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
 
     <link rel="stylesheet" href="css/output.css" />
-  </head>
-  <body>
-    Features Pricing Resources Login Sign Up More than just shorter links Build
-    your brand’s recognition and get detailed insights on how your links are
-    performing. Get Started Shorten a link here... Shorten It! Advanced
-    Statistics Track how your links are performing across the web with our
-    advanced statistics dashboard. Brand Recognition Boost your brand
-    recognition with each click. Generic links don’t mean a thing. Branded links
-    help instil confidence in your content. Detailed Records Gain insights into
-    who is clicking your links. Knowing when and where people engage with your
-    content helps inform better decisions. Fully Customizable Improve brand
-    awareness and content discoverability through customizable links,
-    supercharging audience engagement. Boost your links today Get Started
-    Features Link Shortening Branded Links Analytics Resources Blog Developers
-    Support Company About Our Team Careers Contact
 
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
-    </div>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Nav Section -->
+    <nav class="container px-6 mx-auto mt-8 md:mt-14 md:px-40">
+      <div
+        class="flex flex-row items-center justify-between font-bold relative"
+      >
+        <!-- Mobile Logo -->
+        <img
+          src="images/logo.svg"
+          class="inline-block w-24 md:hidden"
+          alt="shortly logo"
+        />
+        <!-- Links -->
+        <div class="hidden md:flex flex-row items-center space-x-10">
+          <img src="images/logo.svg" alt="shortly logo" />
+          <a
+            href="#"
+            class="inline-block text-grayishViolet text-base hover:text-veryDarkViolet"
+            >Features</a
+          ><a
+            href="#"
+            class="inline-block text-grayishViolet text-base hover:text-veryDarkViolet"
+            >Pricing</a
+          ><a
+            href="#"
+            class="inline-block text-grayishViolet text-base hover:text-veryDarkViolet"
+            >Resources</a
+          >
+        </div>
+
+        <!-- User -->
+        <div class="hidden md:flex flex-row items-center space-x-10">
+          <div class="text-grayishViolet hover:text-veryDarkViolet">Login</div>
+          <button class="bg-cyan text-white py-2.5 px-6 rounded-full">
+            Sign up
+          </button>
+        </div>
+
+        <!-- Mobile Menu Icon -->
+        <div class="menu-icon flex flex-col justify-between h-4 md:hidden">
+          <span class="block bg-gray"></span><span class="block bg-gray"></span
+          ><span class="block bg-gray"></span>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="menu-container block absolute top-10 w-full h-96 md:hidden">
+          <div
+            class="menu flex flex-col justify-between items-center rounded-lg w-full overflow-hidden text-white bg-darkViolet"
+          >
+            <div
+              class="flex flex-col justify-around items-center w-10/12 mt-9 border-b-[1px] border-gray/25"
+            >
+              <!-- Links -->
+              <a href="#" class="inline-block text-base py-2 mb-5">Features</a
+              ><a href="#" class="inline-block text-base py-2 mb-5">Pricing</a
+              ><a href="#" class="inline-block text-base py-2 mb-5"
+                >Resources</a
+              >
+            </div>
+
+            <!-- User -->
+            <div class="flex flex-col justify-around items-center">
+              <div class="py-2 my-5">Login</div>
+              <button class="bg-cyan py-2 px-28 mb-11 rounded-full">
+                Sign up
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="overflow-x-hidden">
+      <!-- Hero Section -->
+      <section id="hero" class="container px-6 my-6 mx-auto md:mt-20 md:px-40">
+        <div
+          class="flex flex-col-reverse space-y-10 space-y-reverse overflow-visible md:flex-row md:space-x-24"
+        >
+          <!-- Heading -->
+          <div
+            class="flex flex-col items-center text-center w-full md:items-start md:text-start md:min-w-[50%] md:mt-20"
+          >
+            <h1
+              class="text-veryDarkViolet font-bold text-4xl md:text-7xl md:leading-tight"
+            >
+              More than just shorter links
+            </h1>
+            <p
+              class="text-grayishViolet text-large mt-4 md:max-w-lg md:text-xl md:leading-8"
+            >
+              Build your brand’s recognition and get detailed insights on how
+              your links are performing.
+            </p>
+            <button
+              class="bg-cyan text-white text-large w-3/6 py-3 px-2 mt-6 rounded-full md:w-4/12 md:text-xl md:mt-8"
+            >
+              Get Started
+            </button>
+          </div>
+
+          <!-- Img -->
+          <img
+            class="w-[505px] max-w-[505px] object-cover md:max-w-[1000px] md:w-[1000px]"
+            src="images/illustration-working.svg"
+            alt=""
+          />
+        </div>
+      </section>
+
+      <!-- Shorten Link Section -->
+      <section class="container px-6 mx-auto mt-20 md:mt-0 md:px-40">
+        <div class="flex flex-col space-y-6 md:space-y-4">
+          <!-- User Input -->
+          <div
+            class="input flex flex-col p-6 rounded-xl md:flex-row md:py-14 md:px-16 md:space-x-7"
+          >
+            <div class="flex flex-col md:w-10/12">
+              <input
+                class="rounded-md py-2.5 mb-4 px-3 bg-white focus:outline focus:outline-4 focus:outline-cyan focus:outline-offset-0 md:h-16 md:mb-0 md:text-xl md:px-7"
+                type="search"
+                name="input url"
+                placeholder="Shorten a link here..."
+              />
+              <p
+                class="warning text-red text-xs italic -mt-2 pb-4 hidden md:text-base md:mt-3 md:pb-0 md:-mb-9"
+              >
+                Please add a link
+              </p>
+            </div>
+            <button
+              class="bg-cyan text-white py-2.5 px-2 rounded-md md:w-2/12 md:h-16 md:text-xl"
+            >
+              Shorten It!
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature Section -->
+      <section class="container px-6 mx-auto mt-20 md:mt-32 md:px-32">
+        <div
+          class="feature-title flex flex-col items-center text-center space-y-5"
+        >
+          <h2 class="text-veryDarkViolet text-2xl font-bold md:text-5xl">
+            Advanced Statistics
+          </h2>
+          <p class="text-grayishViolet text-base md:text-xl md:max-w-xl">
+            Track how your links are performing across the web with our advanced
+            statistics dashboard.
+          </p>
+        </div>
+      </section>
+    </main>
+    Brand Recognition Boost your brand recognition with each click. Generic
+    links don’t mean a thing. Branded links help instil confidence in your
+    content. Detailed Records Gain insights into who is clicking your links.
+    Knowing when and where people engage with your content helps inform better
+    decisions. Fully Customizable Improve brand awareness and content
+    discoverability through customizable links, supercharging audience
+    engagement. Boost your links today Get Started Features Link Shortening
+    Branded Links Analytics Resources Blog Developers Support Company About Our
+    Team Careers Contact
+
+    <script src="script.js"></script>
   </body>
 </html>

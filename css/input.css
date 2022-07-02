@@ -1,3 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+}
+
+/* Background Color */
+body {
+  background: linear-gradient(to left, hsl(0, 0%, 95%), hsl(0, 0%, 95%))
+    no-repeat;
+  background-position: 0 815px;
+}
+
+@media screen and (max-width: 640px) {
+  body {
+    background-position: 0 792px;
+  }
+}
+
+/* Mobile menu */
+.menu-icon span {
+  width: 22px;
+  height: 3px;
+}
+
+.menu-container .menu {
+  height: 0;
+  opacity: 0;
+  transition: height 0.5s ease-in-out, opacity 0.3s linear;
+}
+
+.menu-container.open .menu {
+  height: 384px;
+  opacity: 1;
+}
+
+button:hover {
+  background-color: hsl(180, 66%, 70%);
+}
+
+/* Shorten links */
+.input {
+  background: url('../images/bg-shorten-desktop.svg'), hsl(257, 27%, 26%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-width: 640px) {
+  .input {
+    background: url('../images/bg-shorten-mobile.svg'), hsl(257, 27%, 26%);
+  }
+}
+
+input.invalid {
+  outline: solid;
+  outline-width: 4px;
+  outline-color: hsl(0, 87%, 67%);
+  outline-offset: 0;
+}
+
+input.invalid::placeholder {
+  color: hsl(0, 87%, 80%);
+}
