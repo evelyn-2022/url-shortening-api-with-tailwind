@@ -151,7 +151,7 @@ function addClearBtn() {
   shortenCon.insertAdjacentHTML(
     'beforeend',
     `     <button
-            class="clear w-24 pt-3 italic text-sm text-grayishViolet underline decoration-dashed underline-offset-2 md:text-base hover:text-veryDarkViolet"
+            class="clear w-24 mt-3 italic text-sm text-grayishViolet underline decoration-dashed underline-offset-2 md:text-base md:pt-3 hover:text-veryDarkViolet"
           >
             &nbsp;Clear All&nbsp;
           </button>`
