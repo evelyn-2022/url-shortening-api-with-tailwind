@@ -133,14 +133,14 @@
 
       <!-- Shorten Link Section -->
       <section class="container px-6 mx-auto mt-20 md:mt-0 md:px-40">
-        <div class="flex flex-col space-y-6 md:space-y-4">
+        <div class="shorten flex flex-col items-center space-y-6 mb-6">
           <!-- User Input -->
           <div
-            class="input flex flex-col p-6 rounded-xl md:flex-row md:py-14 md:px-16 md:space-x-7"
+            class="input flex flex-col w-full p-6 rounded-xl md:flex-row md:py-14 md:px-16 md:space-x-7 md:justify-between"
           >
             <div class="flex flex-col md:w-10/12">
               <input
-                class="rounded-md py-2.5 mb-4 px-3 bg-white focus:outline focus:outline-4 focus:outline-cyan focus:outline-offset-0 md:h-16 md:mb-0 md:text-xl md:px-7"
+                class="rounded-md w-full py-2.5 mb-4 px-3 bg-white focus:outline focus:outline-4 focus:outline-cyan focus:-outline-offset-4 md:h-16 md:mb-0 md:text-xl md:px-7"
                 type="search"
                 name="input url"
                 placeholder="Shorten a link here..."
@@ -157,6 +157,7 @@
               Shorten It!
             </button>
           </div>
+          <div class="results-container flex flex-col w-full space-y-4"></div>
         </div>
       </section>
 

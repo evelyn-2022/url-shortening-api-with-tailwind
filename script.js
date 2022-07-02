@@ -8,7 +8,8 @@ menuIcon.addEventListener('click', () => {
 
 ///////////////////////////////////////////////////////////////////
 // Shorten link
-const inputCon = document.querySelector('.input');
+const shortenCon = document.querySelector('.shorten');
+const resultsCon = document.querySelector('.results-container');
 const shortenBtn = document.querySelector('.input button');
 const userInp = document.querySelector('.input input');
 const warning = document.querySelector('.warning');
@@ -44,29 +45,76 @@ shortenBtn.addEventListener('click', () => {
       alert(err);
     }
   })(inp);
+
+  // Clear user input
+  userInp.value = '';
 });
 
 async function getShortenedLink(link) {
   try {
+    // Render spinner
+    renderSpinner();
+
     const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}`);
     if (!res.ok) throw new Error('Please enter a valid link');
 
     const data = await res.json();
     const { full_short_link: shortLink, original_link: origLink } = data.result;
     const id = shortLink.slice(-6);
+
+    // Remove spinner
+    const spinner = document.querySelector('.result-loading');
+    spinner.remove();
+
+    // Render Result
     renderResult(id, origLink, shortLink);
     addToList(id, origLink, shortLink);
     setLocalStorage();
+
+    // Add clear btn
+    if (results.length === 1) {
+      addClearBtn();
+
+      const clearBtn = document.querySelector('.clear');
+      clearBtn.addEventListener('click', () => {
+        reset();
+        clearBtn.remove();
+      });
+    }
   } catch (err) {
     throw err;
   }
 }
 
+function renderSpinner() {
+  resultsCon.insertAdjacentHTML(
+    'afterbegin',
+    `       <div
+              class="result-loading w-full h-[160px] flex flex-col justify-center bg-white rounded-lg md:py-4 md:px-6 md:h-[84px]"
+            >
+              <div
+                class="flex w-full flex-row items-center justify-center"
+              >
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+              </div>
+            </div>`
+  );
+}
+
 function renderResult(id, orig, shortened) {
-  inputCon.insertAdjacentHTML(
-    'afterend',
+  resultsCon.insertAdjacentHTML(
+    'afterbegin',
     `     <div
-            class="result flex flex-col bg-white rounded-lg md:items-center md:flex-row md:justify-between md:py-4 md:px-6 md:text-xl md:space-x-6"
+            class="result w-full flex flex-col bg-white rounded-lg md:items-center md:flex-row md:justify-between md:py-4 md:px-6 md:text-xl md:space-x-6"
           >
             <!-- Original Link -->
             <div
@@ -99,6 +147,17 @@ function addToList(id, orig, short) {
   results.push(newRes);
 }
 
+function addClearBtn() {
+  shortenCon.insertAdjacentHTML(
+    'beforeend',
+    `     <button
+            class="clear w-24 pt-3 italic text-sm text-grayishViolet underline decoration-dashed underline-offset-2 md:text-base hover:text-veryDarkViolet"
+          >
+            &nbsp;Clear All&nbsp;
+          </button>`
+  );
+}
+
 function setLocalStorage() {
   localStorage.setItem('results', JSON.stringify(results));
 }
@@ -112,11 +171,22 @@ function getLocalStorage() {
   results.forEach(result => {
     renderResult(result.id, result.orig, result.shortened);
   });
+
+  if (results.length > 0) {
+    addClearBtn();
+
+    const clearBtn = document.querySelector('.clear');
+    clearBtn.addEventListener('click', () => {
+      reset();
+      clearBtn.remove();
+    });
+  }
 }
 
 function reset() {
+  results = [];
   localStorage.removeItem('results');
-  // location.reload();
+  resultsCon.innerHTML = '';
 }
 
 function copyText(id) {
