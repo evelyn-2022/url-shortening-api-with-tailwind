@@ -578,9 +578,9 @@ body {
   }
 }
 
-@media (min-width: 976px) {
+@media (min-width: 1025px) {
   .container {
-    max-width: 976px;
+    max-width: 1025px;
   }
 }
 
@@ -986,9 +986,25 @@ body {
   background-position: 0 815px;
 }
 
+@media screen and (max-width: 1024px) {
+  body {
+    background-position: 0 615px;
+  }
+}
+
 @media screen and (max-width: 640px) {
   body {
     background-position: 0 792px;
+  }
+}
+
+.container {
+  max-width: 1280px;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 100%;
   }
 }
 
@@ -1160,16 +1176,12 @@ input.invalid::placeholder {
 }
 
 @media (min-width: 768px) {
-  .md\:mt-14 {
-    margin-top: 3.5rem;
+  .md\:mt-10 {
+    margin-top: 2.5rem;
   }
 
   .md\:mt-20 {
     margin-top: 5rem;
-  }
-
-  .md\:mt-8 {
-    margin-top: 2rem;
   }
 
   .md\:mt-0 {
@@ -1212,20 +1224,16 @@ input.invalid::placeholder {
     height: 84px;
   }
 
-  .md\:w-4\/12 {
-    width: 33.333333%;
+  .md\:w-\[470px\] {
+    width: 470px;
   }
 
-  .md\:w-\[1000px\] {
-    width: 1000px;
+  .md\:w-9\/12 {
+    width: 75%;
   }
 
-  .md\:w-10\/12 {
-    width: 83.333333%;
-  }
-
-  .md\:w-2\/12 {
-    width: 16.666667%;
+  .md\:w-3\/12 {
+    width: 25%;
   }
 
   .md\:w-32 {
@@ -1236,12 +1244,8 @@ input.invalid::placeholder {
     min-width: 50%;
   }
 
-  .md\:max-w-lg {
-    max-width: 32rem;
-  }
-
-  .md\:max-w-\[1000px\] {
-    max-width: 1000px;
+  .md\:max-w-\[470px\] {
+    max-width: 470px;
   }
 
   .md\:max-w-xl {
@@ -1268,22 +1272,16 @@ input.invalid::placeholder {
     justify-content: space-between;
   }
 
-  .md\:space-x-24 > :not([hidden]) ~ :not([hidden]) {
+  .md\:space-x-6 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
-    margin-right: calc(6rem * var(--tw-space-x-reverse));
-    margin-left: calc(6rem * calc(1 - var(--tw-space-x-reverse)));
+    margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+    margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .md\:space-x-7 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
     margin-right: calc(1.75rem * var(--tw-space-x-reverse));
     margin-left: calc(1.75rem * calc(1 - var(--tw-space-x-reverse)));
-  }
-
-  .md\:space-x-6 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(1.5rem * var(--tw-space-x-reverse));
-    margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .md\:border-none {
@@ -1294,9 +1292,9 @@ input.invalid::placeholder {
     padding: 0px;
   }
 
-  .md\:px-40 {
-    padding-left: 10rem;
-    padding-right: 10rem;
+  .md\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 
   .md\:py-14 {
@@ -1312,11 +1310,6 @@ input.invalid::placeholder {
   .md\:px-7 {
     padding-left: 1.75rem;
     padding-right: 1.75rem;
-  }
-
-  .md\:px-32 {
-    padding-left: 8rem;
-    padding-right: 8rem;
   }
 
   .md\:py-4 {
@@ -1335,11 +1328,6 @@ input.invalid::placeholder {
 
   .md\:text-start {
     text-align: start;
-  }
-
-  .md\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
   }
 
   .md\:text-xl {
@@ -1365,8 +1353,86 @@ input.invalid::placeholder {
   .md\:leading-tight {
     line-height: 1.25;
   }
+}
 
-  .md\:leading-8 {
+@media (min-width: 1025px) {
+  .lg\:mt-14 {
+    margin-top: 3.5rem;
+  }
+
+  .lg\:mt-20 {
+    margin-top: 5rem;
+  }
+
+  .lg\:mt-8 {
+    margin-top: 2rem;
+  }
+
+  .lg\:w-4\/12 {
+    width: 33.333333%;
+  }
+
+  .lg\:w-\[1000px\] {
+    width: 1000px;
+  }
+
+  .lg\:w-10\/12 {
+    width: 83.333333%;
+  }
+
+  .lg\:w-2\/12 {
+    width: 16.666667%;
+  }
+
+  .lg\:max-w-lg {
+    max-width: 32rem;
+  }
+
+  .lg\:max-w-\[1000px\] {
+    max-width: 1000px;
+  }
+
+  .lg\:space-x-24 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(6rem * var(--tw-space-x-reverse));
+    margin-left: calc(6rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .lg\:px-40 {
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+
+  .lg\:px-32 {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
+  .lg\:px-24 {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
+  .lg\:px-20 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+  .lg\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .lg\:leading-8 {
     line-height: 2rem;
+  }
+
+  .lg\:leading-tight {
+    line-height: 1.25;
   }
 }
