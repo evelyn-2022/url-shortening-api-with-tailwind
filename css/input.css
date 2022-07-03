@@ -134,8 +134,14 @@ input.invalid::placeholder {
   }
 }
 
-/* @media (max-width: 640px) {
-  .wave {
-    height: 24px;
+/* Boost */
+.boost {
+  background: url('../images/bg-boost-desktop.svg'), hsl(257, 27%, 26%);
+  background-size: cover;
+}
+
+@media screen and (max-width: 640px) {
+  .boost {
+    background: url('../images/bg-boost-mobile.svg'), hsl(257, 27%, 26%);
   }
-} */
+}
