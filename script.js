@@ -7,7 +7,7 @@ menuIcon.addEventListener('click', () => {
 });
 
 ///////////////////////////////////////////////////////////////////
-// Shorten link
+// Render shortened links
 const shortenCon = document.querySelector('.shorten');
 const resultsCon = document.querySelector('.results-container');
 const shortenBtn = document.querySelector('.input button');
@@ -52,6 +52,7 @@ shortenBtn.addEventListener('click', () => {
   userInp.value = '';
 });
 
+// Functions
 async function getShortenedLink(link) {
   try {
     // Render spinner
@@ -127,8 +128,7 @@ function renderResult(id, original, shortened) {
                 >${shortened}</a
               >
               <button
-                id="${id}"
-                onclick="copyText('${id}')"
+                data-id="${id}"
                 class="copy-btn bg-cyan text-white py-2.5 px-2 mb-4 rounded-md md:mb-0 md:text-lg md:w-32 md:ml-6"
               >
                 Copy
@@ -183,10 +183,18 @@ function reset() {
   resultsCon.innerHTML = '';
 }
 
-function copyText(id) {
-  const btn = document.getElementById(id);
-  btn.textContent = 'Copied!';
-  btn.style.backgroundColor = 'hsl(257, 27%, 26%)';
-  const copyText = `https://shrtco.de/` + id;
+/////////////////////////////////////////
+// Copy text to clipboard
+resultsCon.addEventListener('click', function (e) {
+  const target = e.target.closest('.copy-btn');
+  if (!target) return;
+  console.log(target);
+  copyText(target);
+});
+
+function copyText(elem) {
+  elem.textContent = 'Copied!';
+  elem.style.backgroundColor = 'hsl(257, 27%, 26%)';
+  const copyText = `https://shrtco.de/` + elem.dataset.id;
   navigator.clipboard.writeText(copyText);
 }
