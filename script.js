@@ -13,6 +13,8 @@ const resultsCon = document.querySelector('.results-container');
 const shortenBtn = document.querySelector('.input button');
 const userInp = document.querySelector('.input input');
 const warning = document.querySelector('.warning');
+const clearBtn = document.createElement('div');
+
 let results = [];
 class Result {
   constructor(id, original, shortened) {
@@ -74,12 +76,6 @@ async function getShortenedLink(link) {
     // Add clear btn
     if (results.length === 1) {
       addClearBtn();
-
-      const clearBtn = document.querySelector('.clear');
-      clearBtn.addEventListener('click', () => {
-        reset();
-        clearBtn.remove();
-      });
     }
   } catch (err) {
     throw err;
@@ -148,14 +144,18 @@ function addToList(id, original, short) {
 }
 
 function addClearBtn() {
-  shortenCon.insertAdjacentHTML(
-    'beforeend',
-    `     <button
+  clearBtn.innerHTML = `     
+          <button
             class="clear w-24 mt-3 italic text-sm text-grayishViolet underline decoration-dashed underline-offset-2 md:text-base md:pt-3 hover:text-veryDarkViolet"
           >
             &nbsp;Clear All&nbsp;
-          </button>`
-  );
+          </button>`;
+  shortenCon.append(clearBtn);
+
+  clearBtn.addEventListener('click', () => {
+    reset();
+    clearBtn.remove();
+  });
 }
 
 function setLocalStorage() {
@@ -174,12 +174,6 @@ function getLocalStorage() {
 
   if (results.length > 0) {
     addClearBtn();
-
-    const clearBtn = document.querySelector('.clear');
-    clearBtn.addEventListener('click', () => {
-      reset();
-      clearBtn.remove();
-    });
   }
 }
 
