@@ -17,6 +17,12 @@ body {
 
 @media screen and (max-width: 1024px) {
   body {
+    background-position: 0 815px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
     background-position: 0 615px;
   }
 }
