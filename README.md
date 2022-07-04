@@ -15,7 +15,7 @@ Users should be able to:
 
 ## Links
 
-- Solution URL: [github code](https://github.com/evelyn-2022/url-shortening-api-with-tailwind/settings/pages)
+- Solution URL: [github code](https://github.com/evelyn-2022/url-shortening-api-with-tailwind)
 - Live Site URL: [github page](https://evelyn-2022.github.io/url-shortening-api-with-tailwind/)
 
 ## Built with
