@@ -15,9 +15,9 @@ const userInp = document.querySelector('.input input');
 const warning = document.querySelector('.warning');
 let results = [];
 class Result {
-  constructor(id, orig, shortened) {
+  constructor(id, original, shortened) {
     this.id = id;
-    this.orig = orig;
+    this.original = original;
     this.shortened = shortened;
   }
 }
@@ -110,7 +110,7 @@ function renderSpinner() {
   );
 }
 
-function renderResult(id, orig, shortened) {
+function renderResult(id, original, shortened) {
   resultsCon.insertAdjacentHTML(
     'afterbegin',
     `     <div
@@ -120,7 +120,7 @@ function renderResult(id, orig, shortened) {
             <div
               class="text-veryDarkViolet p-4 pb-3 border-b-[1px] border-b-gray/25 truncate md:border-none md:p-0"
             >
-              ${orig}
+              ${original}
             </div>
 
             <!-- Shortened Link -->
@@ -142,8 +142,8 @@ function renderResult(id, orig, shortened) {
   );
 }
 
-function addToList(id, orig, short) {
-  const newRes = new Result(id, orig, short);
+function addToList(id, original, short) {
+  const newRes = new Result(id, original, short);
   results.push(newRes);
 }
 
@@ -169,7 +169,7 @@ function getLocalStorage() {
 
   results = data;
   results.forEach(result => {
-    renderResult(result.id, result.orig, result.shortened);
+    renderResult(result.id, result.original, result.shortened);
   });
 
   if (results.length > 0) {
